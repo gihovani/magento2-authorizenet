@@ -3,7 +3,14 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <gg2_authorizenet>
-            <title>Authorize.NET Payment</title>
+            <title>GG2 Authorize.NET Payment</title>
+            <model>Gg2AuthorizenetFacade</model>
+            <active>1</active>
+            <is_gateway>1</is_gateway>
+            <can_use_checkout>1</can_use_checkout>
+            <can_authorize>1</can_authorize>
+            <can_capture>1</can_capture>
+            <cctypes>VI,MC</cctypes>
         </gg2_authorizenet>
     </default>
 </config>
