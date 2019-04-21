@@ -1,4 +1,6 @@
-define(['Magento_Payment/js/view/payment/cc-form'], function (Component) {
+define([
+    'Magento_Payment/js/view/payment/cc-form'
+], function (Component) {
     'use strict';
 
     return Component.extend({
@@ -7,7 +9,7 @@ define(['Magento_Payment/js/view/payment/cc-form'], function (Component) {
             code: 'gg2_authorizenet'
         },
 
-        getCode: function() {
+        getCode: function () {
             return this.code;
         },
         isActive: function () {
@@ -15,3 +17,5 @@ define(['Magento_Payment/js/view/payment/cc-form'], function (Component) {
         }
     });
 });
+
+
