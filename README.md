@@ -16,3 +16,9 @@ $ modman clone https://github.com/gihovani/magento2-authorizenet.git
 
 * Max Pronko
 * Gihovani Demetrio
+
+```
+API KEY: 2YA8Fn4gMy9J
+TRANSACTION KEY: 276d9THeh45zxUaL
+KEY: Simon
+```

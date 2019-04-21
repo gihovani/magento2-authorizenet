@@ -9,6 +9,9 @@ define(['Magento_Payment/js/view/payment/cc-form'], function (Component) {
 
         getCode: function() {
             return this.code;
+        },
+        isActive: function () {
+            return this.getCode() === this.isChecked();
         }
     });
 });

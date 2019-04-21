@@ -2,17 +2,13 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <!-- Authorize.NET Payment Facade Virtual Type Configuration -->
-    <virtualType name="Gg2AuthorizenetFacade" type="Magento\PaymentModel\Method\Adapter">
+    <virtualType name="Gg2AuthorizenetFacade" type="Magento\Payment\Model\Method\Adapter">
         <arguments>
             <argument name="code" xsi:type="string">gg2_authorizenet</argument>
             <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form\Cc</argument>
             <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\ConfigurableInfo</argument>
-            <argument name="valueHandlerPool" xsi:type="object">
-                Gg2AuthorizenetValueHandlerPool
-            </argument>
-            <argument name="commandPool" xsi:type="object">
-                Gg2AuthorizenetCommandPool
-            </argument>
+            <argument name="valueHandlerPool" xsi:type="object">Gg2AuthorizenetValueHandlerPool</argument>
+            <argument name="commandPool" xsi:type="object">Gg2AuthorizenetCommandPool</argument>
         </arguments>
     </virtualType>
 
@@ -20,9 +16,7 @@
     <virtualType name="Gg2AuthorizenetValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="default" xsi:type="string">
-                    Gg2AuthorizenetConfigValueHandlerPool
-                </item>
+                <item name="default" xsi:type="string">Gg2AuthorizenetConfigValueHandler</item>
             </argument>
         </arguments>
     </virtualType>
@@ -30,22 +24,23 @@
     <!-- Authorize.NET Value Handler Configuration -->
     <virtualType name="Gg2AuthorizenetConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
         <arguments>
-            <argument name="configInterface" xsi:type="object">
-                Gg2\Authorizenet\Gateway\Config\Config
-            </argument>
+            <argument name="configInterface" xsi:type="object">Gg2\Authorizenet\Gateway\Config\Config</argument>
         </arguments>
     </virtualType>
 
+    <!-- Authorize.NET Value Handler Configuration -->
+    <virtualType name="Gg2\Authorizenet\Gateway\Config\Config" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="string">gg2_authorizenet</argument>
+        </arguments>
+    </virtualType>
+    
     <!-- Authorize.NET Command Pool Configuration -->
     <virtualType name="Gg2AuthorizenetCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="authorize" xsi:type="string">
-                    Magento\Payment\Gateway\Command\NullCommand
-                </item>
-                <item name="capture" xsi:type="string">
-                    Magento\Payment\Gateway\Command\NullCommand
-                </item>
+                <item name="authorize" xsi:type="string">Magento\Payment\Gateway\Command\NullCommand</item>
+                <item name="capture" xsi:type="string">Magento\Payment\Gateway\Command\NullCommand</item>
             </argument>
         </arguments>
     </virtualType>
