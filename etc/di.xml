@@ -34,7 +34,7 @@
             <argument name="methodCode" xsi:type="string">gg2_authorizenet</argument>
         </arguments>
     </virtualType>
-    
+
     <!-- Authorize.NET Command Pool Configuration -->
     <virtualType name="Gg2AuthorizenetCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
         <arguments>
@@ -43,5 +43,34 @@
                 <item name="capture" xsi:type="string">Magento\Payment\Gateway\Command\NullCommand</item>
             </argument>
         </arguments>
+    </virtualType>
+
+    <!-- Authorize.NET Request Charge Transaction Builder -->
+    <virtualType name="Gg2AuthorizenetChargeTransactionBuilder" type="Gg2\Authorizenet\Gateway\Request\RequestBuilder">
+        <arguments>
+            <argument name="builder" xsi:type="object">Gg2AuthorizenetChargeBuilderComposite</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Authorize.NET Request Charge Transaction Builder Composite -->
+    <virtualType name="Gg2AuthorizenetChargeBuilderComposite" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="charge" xsi:type="string">Gg2\Authorizenet\Gateway\Request\Builder\Charge</item>
+                <item name="payment" xsi:type="string">Gg2\Authorizenet\Gateway\Request\Builder\Payment</item>
+                <item name="productItems" xsi:type="string">Gg2\Authorizenet\Gateway\Request\Builder\ProductItems</item>
+                <item name="totals" xsi:type="string">Gg2\Authorizenet\Gateway\Request\Builder\Totals</item>
+                <item name="address" xsi:type="string">Gg2\Authorizenet\Gateway\Request\Builder\Address</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Authorize.NET Charge Command -->
+    <virtualType name="Gg2AuthorizenetChargeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">Gg2AuthorizenetChargeTransactionBuilder</argument>
+            <argument name="transferFactory" xsi:type="object">Gg2\Authorizenet\Gateway\Http\TransferFactory</argument>
+        </arguments>
+
     </virtualType>
 </config>

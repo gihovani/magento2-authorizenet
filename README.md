@@ -17,7 +17,11 @@ $ modman clone https://github.com/gihovani/magento2-authorizenet.git
 * Max Pronko
 * Gihovani Demetrio
 
+
+### Commands
 ```
+bin/magento setup:install --backend-frontname=admin --db-name=magento2 --db-user=magento2curso --db-password=magento2curso --db-host=localhost:3306 --admin-user=admin --admin-password=admin123 --admin-email="gihovani@gmail.com" --admin-firstname=Admin --admin-lastname=Root --currency=BRL --session-save=files
+
 API KEY: 2YA8Fn4gMy9J
 TRANSACTION KEY: 276d9THeh45zxUaL
 KEY: Simon

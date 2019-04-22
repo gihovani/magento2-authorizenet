@@ -18,12 +18,12 @@ class DataAssignObserver extends AbstractDataAssignObserver
     const CC_CID = 'cc_cid';
 
     private $paymentsFields = [
-        self::CC_NUMBER => 'cc_number',
-        self::CC_TYPE_4 => 'cc_last_4',
-        self::CC_TYPE => 'cc_type',
+        self::CC_NUMBER    => 'cc_number',
+        self::CC_TYPE_4    => 'cc_last_4',
+        self::CC_TYPE      => 'cc_type',
         self::CC_EXP_MONTH => 'cc_exp_month',
-        self::CC_EXP_YEAR => 'cc_exp_year',
-        self::CC_CID => 'cc_cid'
+        self::CC_EXP_YEAR  => 'cc_exp_year',
+        self::CC_CID       => 'cc_cid'
     ];
 
     public function execute(Observer $observer)
