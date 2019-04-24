@@ -26,7 +26,7 @@ class Totals implements BuilderInterface
             ],
             'shipping' => [
                 'amount' => $orderModel->getBaseShippingAmount(),
-                'name'   => $orderModel->getShippingMethod()
+                'name'   => substr($orderModel->getShippingMethod(), 0, 31)
             ],
             'poNumber' => $order->getOrderIncrementId()
         ];

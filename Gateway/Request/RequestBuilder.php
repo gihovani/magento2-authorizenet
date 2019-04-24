@@ -2,6 +2,7 @@
 
 namespace Gg2\Authorizenet\Gateway\Request;
 
+use Gg2\Authorizenet\Gateway\Config;
 use Magento\Payment\Gateway\Request\BuilderInterface;
 
 class RequestBuilder implements BuilderInterface
@@ -10,10 +11,15 @@ class RequestBuilder implements BuilderInterface
      * @var BuilderInterface
      */
     private $builder;
+    /**
+     * @var Config
+     */
+    private $config;
 
-    public function __construct(BuilderInterface $builder)
+    public function __construct(BuilderInterface $builder, Config $config)
     {
         $this->builder = $builder;
+        $this->config = $config;
     }
 
     public function build(array $buildSubject)
@@ -21,12 +27,10 @@ class RequestBuilder implements BuilderInterface
         return [
             'createTransactionRequest' => [
                 'merchantAuthentication' => [
-                    'name'           => '2YA8Fn4gMy9J',
-                    'transactionKey' => '276d9THeh45zxUaL'
+                    'name'           => $this->config->getApiLoginId(),
+                    'transactionKey' => $this->config->getTransactionKey()
                 ],
-                'transactionRequest'     => [
-                    'transactionType' => $this->builder->build($buildSubject)
-                ]
+                'transactionRequest'     => $this->builder->build($buildSubject)
             ]
         ];
     }

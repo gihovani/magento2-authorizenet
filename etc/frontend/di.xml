@@ -8,4 +8,13 @@
             </argument>
         </arguments>
     </type>
+
+    <virtualType name="Gg2AuthorizenetConfigurableInfo" type="Magento\Payment\Block\ConfigurableInfo">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="is_secure_mode" xsi:type="string">1</item>
+                <item name="methodCode" xsi:type="string">gg2_authorizenet</item>
+            </argument>
+        </arguments>
+    </virtualType>
 </config>

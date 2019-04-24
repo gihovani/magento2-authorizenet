@@ -29,14 +29,14 @@ class Address implements BuilderInterface
     private function getFormattedAddress(AddressAdapterInterface $address)
     {
         return [
-            'firstName' => $address->getFirstname(),
-            'lastName'  => $address->getLastname(),
-            'company'   => $address->getCompany() ?: '',
-            'address'   => $address->getStreetLine1() . $address->getStreetLine2(),
-            'city'      => $address->getCity(),
-            'state'     => $address->getRegionCode(),
-            'zip'       => $address->getPostcode(),
-            'country'   => $address->getCountryId()
+            'firstName' => substr($address->getFirstname(), 0, 50),
+            'lastName'  => substr($address->getLastname(), 0, 50),
+            'company'   => substr(($address->getCompany() ?: ''), 0, 50),
+            'address'   => substr(($address->getStreetLine1() . $address->getStreetLine2()), 0, 60),
+            'city'      => substr($address->getCity(), 0, 40),
+            'state'     => substr($address->getRegionCode(), 0, 40),
+            'zip'       => substr($address->getPostcode(), 0, 20),
+            'country'   => substr($address->getCountryId(), 0, 60)
         ];
     }
 

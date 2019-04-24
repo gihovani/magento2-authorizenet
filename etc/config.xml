@@ -4,14 +4,28 @@
     <default>
         <payment>
             <gg2_authorizenet>
-                <title>GG2 Authorize.NET Payment</title>
                 <model>Gg2AuthorizenetFacade</model>
+                <title>GG2 Authorize.NET Payment</title>
                 <active>1</active>
                 <is_gateway>1</is_gateway>
                 <can_use_checkout>1</can_use_checkout>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
+
                 <cctypes>VI,MC</cctypes>
+
+                <payment_action>authorize_capture</payment_action>
+                <debug>true</debug>
+
+                <paymentInfoKeys>auth_code,avs_result_code,cvv_result_code,cavv_result_code,account_number,account_type</paymentInfoKeys>
+                <privateInfoKeys>auth_code,avs_result_code,cvv_result_code,cavv_result_code</privateInfoKeys>
+
+
+                <is_sandbox>1</is_sandbox>
+                <gateway_url>https://api.authorize.net/xml/v1/request.api</gateway_url>
+                <gateway_url_sandbox>https://apitest.authorize.net/xml/v1/request.api</gateway_url_sandbox>
+                <api_login_id>2YA8Fn4gMy9J</api_login_id>
+                <transaction_key>276d9THeh45zxUaL</transaction_key>
             </gg2_authorizenet>
         </payment>
     </default>
